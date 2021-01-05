@@ -1,0 +1,12 @@
+﻿@model Phone
+
+<div class="col-lg-4">
+    <h2>Model: @Model.Name</h2>
+    <p>Desc: @Model.Description</p>
+    <p>Price: @Model.Price.ToString("c")</p>
+    <p><a class="btn-warning" href="#">More info</a></p>
+    <form action="@Url.Action("ReservePhone", "Order", new { phoneId = Model.Id })" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button class="btn btn-outline-success" type="submit">В корзину</button>
+    </form>
+</div> 

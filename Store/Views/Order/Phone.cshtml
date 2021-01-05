@@ -1,0 +1,16 @@
+﻿@model Store.Models.PhoneViewModel
+
+@{
+    ViewBag.Title = "Phone details";
+}
+
+<h2>Phone - @Model.Name @Model.Model </h2>
+<h4>@Model.Description</h4>
+
+
+<h4>Price:</h4>
+@foreach (var pc in Model.Order.OrderItems)
+{
+    <span>@pc.Price$</span>
+    <br />
+}

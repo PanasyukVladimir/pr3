@@ -1,0 +1,16 @@
+﻿@model Phone
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+<p>Модель: <strong>@Model.Model</strong></p>
+<p> @Model.Description</p>
+<p>Цена <strong>@Model.Price</strong></p>
+<p>Количество на складе <strong>@Model.Amount</strong></p>
+
+<form action="@Url.Action("ReservePhone", "Order", new { phoneId = Model.Id })" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button class="btn btn-success" type="submit">В корзину</button>
+</form>

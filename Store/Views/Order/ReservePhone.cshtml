@@ -1,0 +1,42 @@
+﻿@model Store.Models.ReservationViewModel
+
+@{
+    ViewBag.Title = "Run details";
+}
+
+<h2>Phone - @Model.Phone.Name @Model.Phone.Model </h2>
+<h4>@Model.Phone.Description</h4>
+
+
+
+<h4>Price: @Model.Phone.Price </h4>
+<h4>Amount: @Model.Phone.Amount </h4>
+
+
+@using (Html.BeginForm("CreateOrder", "Order"))
+{
+    <input type="hidden" value="@Model.Reservation.Id" name="ReservationId" id="ReserevationId" />
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="Name" id="Name" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="Email" id="Email" /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="Address" id="Address" /></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><input type="text" name="City" id="City" /></td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" name="Quantity" id="Quantity" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="submit" />
+}

@@ -1,0 +1,34 @@
+﻿
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+
+@model PhoneListViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Все телефоны</h1>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Phone phone in Model.Phones)
+        {
+            @*@Html.Partial("AllPhones", phone)*@
+            <div class="col-lg-4">
+                <h2>@phone.Name - @phone.Model</h2>
+                <p>Desc: @phone.Description</p>
+                <p>Amount: @phone.Amount</p>
+                <p>Price: @phone.Price.ToString("c")</p>
+                <p><a class="btn-warning" href="@Url.Action("Index", "Phone", new { id = phone.Id })">More info</a></p>
+                <form action="@Url.Action("ReservePhone", "Order", new { phoneId = phone.Id })" method="post">
+                    <input type="hidden" name="id" value="@phone.Id" />
+                    <button class="btn btn-outline-success" type="submit">В корзину</button>
+                </form>
+            </div>
+        }
+    }
+</div>

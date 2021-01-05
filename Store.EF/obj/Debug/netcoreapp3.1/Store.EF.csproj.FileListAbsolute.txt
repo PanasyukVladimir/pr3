@@ -1,0 +1,15 @@
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.Data.dll
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.csprojAssemblyReference.cache
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.AssemblyInfoInputs.cache
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.AssemblyInfo.cs
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.EF.deps.json
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.EF.runtimeconfig.json
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.EF.runtimeconfig.dev.json
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.EF.dll
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.EF.pdb
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\bin\Debug\netcoreapp3.1\Store.Data.pdb
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.csproj.CopyComplete
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.dll
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.pdb
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.genruntimeconfig.cache
+C:\Users\Вова\Desktop\PR3\Store\Store.EF\obj\Debug\netcoreapp3.1\Store.EF.csproj.CoreCompileInputs.cache
