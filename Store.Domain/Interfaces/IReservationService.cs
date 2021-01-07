@@ -10,7 +10,7 @@ namespace Store.Domain.Interfaces
 {
     public interface IReservationService
     {
-        Reservation Reserve(OrderParametersDTO parametersDTO);
+        Reservation Reserve(int phoneId, int quantity);
         void RemoveReservation(int reservation);
         void ReservationChecker();
     }

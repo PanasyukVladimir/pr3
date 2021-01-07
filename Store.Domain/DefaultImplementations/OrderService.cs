@@ -50,14 +50,11 @@ namespace Store.Domain.DefaultImplementations
                 OrderItems = new List<OrderItem>()
             };
 
-            var parametrs = new OrderParametersDTO();
-            parametrs.Phone = phone;
-            parametrs.Quantity = parametersDTO.Quantity;
-            parametrs.Order = newOrder;
+            var priceParametrs = new PriceStrategyParametersDTO();
+            priceParametrs.PhoneId = phone.Id;
+            priceParametrs.Quantity = parametersDTO.Quantity;
 
-            newOrder.OrderItems = _priceStr.CalculatePrice(parametrs);
-
-            _phoneRepository.DeletePhoneAmount(phone.Id, parametersDTO.Quantity);          
+            newOrder.OrderItems = _priceStr.CalculatePrice(priceParametrs);  
 
             res.OrderId = newOrder.Id;
             _resRepo.Update(res);

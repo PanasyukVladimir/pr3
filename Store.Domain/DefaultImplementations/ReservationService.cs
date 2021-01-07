@@ -42,10 +42,10 @@ namespace Store.Domain.DefaultImplementations
             reservation.End = DateTime.Now;
             _reservationRepository.Remove(reservation);
         }
-        public Reservation Reserve(OrderParametersDTO parametersDTO)
+        public Reservation Reserve(int phoneId, int quantity)
         {
             ReservationChecker();
-            if (parametersDTO.Quantity > _phoneRepository.GetPhone(parametersDTO.PhoneId).Amount && parametersDTO.Quantity <= 0)
+            if (quantity > _phoneRepository.GetPhone(phoneId).Amount && quantity < 0)
             {
                 throw new NotImplementedException();
             }
@@ -59,14 +59,14 @@ namespace Store.Domain.DefaultImplementations
 
             ReservedItem reservedItem = new ReservedItem()
             {
-                PhoneId = parametersDTO.PhoneId,
-                ReservedQuantity = parametersDTO.Quantity,
+                PhoneId = phoneId,
+                ReservedQuantity = quantity,
                 Reservation = createIt,
                 ReservationId = createIt.Id,
             };
 
             createIt.ReservedItem = reservedItem;
-            _phoneRepository.DeletePhoneAmount(parametersDTO.PhoneId, parametersDTO.Quantity);
+            _phoneRepository.DeletePhoneAmount(phoneId, quantity);
 
             _reservationRepository.Create(createIt);
 

@@ -13,5 +13,6 @@ namespace Store.Models
         public Reservation Reservation { get; set; }
         public Phone Phone { get; set; }
         public List<OrderItem> OrderItem { get; set; }
+        public int Quantity { get; set; }
     }
 }

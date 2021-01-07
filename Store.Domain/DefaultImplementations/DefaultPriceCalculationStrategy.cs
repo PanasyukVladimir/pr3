@@ -18,11 +18,11 @@ namespace Store.Domain.DefaultImplementations
         }
 
 
-        public List<OrderItem> CalculatePrice(OrderParametersDTO parametrs)
+        public List<OrderItem> CalculatePrice(PriceStrategyParametersDTO parametrs)
         {
             var components = new List<OrderItem>();
 
-            var phone = _phoneRepository.GetPhone(parametrs.Phone.Id);
+            var phone = _phoneRepository.GetPhone(parametrs.PhoneId);
 
             var phoneComponent = new OrderItem();
 

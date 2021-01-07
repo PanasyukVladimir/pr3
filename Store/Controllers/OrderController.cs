@@ -37,25 +37,28 @@ namespace Store.Controllers
         }
 
 
-        public ActionResult ReservePhone(int phoneId)
+        public ActionResult ReservePhone(int phoneId, int quantity)
         {
-            var phone = _phoneRepository.GetPhone(phoneId);
             _reservationService.ReservationChecker();
+            var phone = _phoneRepository.GetPhone(phoneId);
 
-            var parametrs = new OrderParametersDTO();
-            parametrs.Phone = phone;
-            parametrs.Quantity = 1;
+            if (phone.Amount < quantity || quantity <= 0)
+            {
+                return RedirectToAction("Eroor");
+            }
+
+            var parametrs = new PriceStrategyParametersDTO();
             parametrs.PhoneId = phoneId;
+            parametrs.Quantity = quantity;
 
-            var reservation = _reservationService.Reserve(parametrs);
-
-            parametrs.ReservationId = reservation.Id;
+            var reservation = _reservationService.Reserve(phoneId, quantity);
 
             var model = new ReservationViewModel()
             {
                 Reservation = reservation,
                 Phone = phone,
                 OrderItem = _priceCalculationStrategy.CalculatePrice(parametrs),
+                Quantity = quantity
             };
 
             return View(model);
@@ -64,14 +67,8 @@ namespace Store.Controllers
         [HttpPost]
         public ActionResult CreateOrder(CreateOrderViewModel model)
         {
-            var reservation = _reservationRepository.Get(model.ReservationId);
-            var phone = _phoneRepository.GetPhone(reservation.ReservedItem.PhoneId);
             _reservationService.ReservationChecker();
-            
-            if(phone.Amount < model.Quantity)
-            {
-                return RedirectToAction("Eroor");
-            }
+            var reservation = _reservationRepository.Get(model.ReservationId);
 
             var parametrs = new OrderParametersDTO();
             parametrs.Name = model.Name;
@@ -79,7 +76,7 @@ namespace Store.Controllers
             parametrs.Address = model.Address;
             parametrs.City = model.City;
             parametrs.Email = model.Email;
-            parametrs.Quantity = model.Quantity;
+            parametrs.Quantity = reservation.ReservedItem.ReservedQuantity;
 
             var order = _orderService.CreateOrder(parametrs);
 
@@ -92,7 +89,6 @@ namespace Store.Controllers
             var reservation = _reservationRepository.Get(order.ReservationId);
 
             var phone = _phoneRepository.GetPhone(reservation.ReservedItem.PhoneId);
-            _reservationService.RemoveReservation(reservation.Id);
 
             var phoneWM = new PhoneViewModel();
             phoneWM.Name = phone.Name;

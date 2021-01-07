@@ -8,6 +8,6 @@ namespace Store.Domain.Interfaces
 {
     public interface IPriceCalculationStrategy
     {
-        List<OrderItem> CalculatePrice(OrderParametersDTO parametrs);
+        List<OrderItem> CalculatePrice(PriceStrategyParametersDTO parametrs);
     }
 }

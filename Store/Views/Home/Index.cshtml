@@ -25,6 +25,7 @@
                 <p>Price: @phone.Price.ToString("c")</p>
                 <p><a class="btn-warning" href="@Url.Action("Index", "Phone", new { id = phone.Id })">More info</a></p>
                 <form action="@Url.Action("ReservePhone", "Order", new { phoneId = phone.Id })" method="post">
+                    <input type="text" name="Quantity" id="Quantity" />
                     <input type="hidden" name="id" value="@phone.Id" />
                     <button class="btn btn-outline-success" type="submit">В корзину</button>
                 </form>

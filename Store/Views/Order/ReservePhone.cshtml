@@ -11,6 +11,7 @@
 
 <h4>Price: @Model.Phone.Price </h4>
 <h4>Amount: @Model.Phone.Amount </h4>
+<h4>Quantity item in ur cart: @Model.Quantity</h4>
 
 
 @using (Html.BeginForm("CreateOrder", "Order"))
@@ -32,10 +33,6 @@
         <tr>
             <td>City</td>
             <td><input type="text" name="City" id="City" /></td>
-        </tr>
-        <tr>
-            <td>Quantity</td>
-            <td><input type="text" name="Quantity" id="Quantity" /></td>
         </tr>
     </table>
     <input type="submit" value="submit" />
